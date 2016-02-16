@@ -52,5 +52,11 @@
         android:layout_height="wrap_content"
         android:onClick="to_8Activity"
         android:text="跳转到第八个Activity"/>
+    <Button
+        android:id="@+id/id_btn_NineActivity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="to_9Activity"
+        android:text="跳转到第九个Activity"/>
 
 </LinearLayout>

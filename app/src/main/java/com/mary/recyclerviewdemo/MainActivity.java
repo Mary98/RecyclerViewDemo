@@ -8,6 +8,7 @@ import android.view.View;
 import com.mary.recyclerviewdemo.activity.EightActivity;
 import com.mary.recyclerviewdemo.activity.FiveActivity;
 import com.mary.recyclerviewdemo.activity.FourActivity;
+import com.mary.recyclerviewdemo.activity.NineActivity;
 import com.mary.recyclerviewdemo.activity.OneActivity;
 import com.mary.recyclerviewdemo.activity.SevenActivity;
 import com.mary.recyclerviewdemo.activity.SixActivity;
@@ -52,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void to_8Activity(View view) {
         Intent intent = new Intent(MainActivity.this, EightActivity.class);
+        startActivity(intent);
+    }
+    public void to_9Activity(View view) {
+        Intent intent = new Intent(MainActivity.this, NineActivity.class);
         startActivity(intent);
     }
 }

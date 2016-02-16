@@ -20,9 +20,10 @@
         <activity android:name=".activity.ThreeActivity"/>
         <activity android:name=".activity.FourActivity"/>
         <activity android:name=".activity.FiveActivity"/>
-        <activity android:theme="@style/AppTheme" android:name=".activity.SixActivity"/>
+        <activity android:name=".activity.SixActivity"/>
         <activity android:name=".activity.SevenActivity"/>
         <activity android:name=".activity.EightActivity"/>
+        <activity android:name=".activity.NineActivity"/>
     </application>
 
 </manifest>
