@@ -3,8 +3,6 @@ package com.mary.recyclerviewdemo.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
@@ -14,11 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
-import com.mary.recyclerviewdemo.Bean;
+import com.mary.recyclerviewdemo.bean.Bean;
 import com.mary.recyclerviewdemo.R;
 import com.mary.recyclerviewdemo.commonadapter.RecyclerViewHolder;
-import com.mary.recyclerviewdemo.commonadapter.StaggeredAdapter;
-import com.mary.recyclerviewdemo.divider.DividerGridItemDecoration;
+import com.mary.recyclerviewdemo.commonadapter.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +35,7 @@ public class NineActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private List<Bean> mDatas;
-    private StaggeredAdapter mAdapter;
+    private RecyclerViewAdapter mAdapter;
     /**Item的高度集合*/
     private List<Integer> mHeights;
 
@@ -65,7 +62,7 @@ public class NineActivity extends AppCompatActivity {
         // mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         // GridView布局
         // mRecyclerView.setLayoutManager(new GridLayoutManager(this,4));
-        mRecyclerView.setAdapter(mAdapter = new StaggeredAdapter<Bean>(this, mDatas, R.layout.item_one) {
+        mRecyclerView.setAdapter(mAdapter = new RecyclerViewAdapter<Bean>(this, mDatas, R.layout.item_one) {
             @Override
             public void convert(RecyclerViewHolder holder, final Bean bean) {
                 // 设置高度

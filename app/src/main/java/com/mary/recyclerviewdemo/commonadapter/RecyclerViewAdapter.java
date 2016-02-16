@@ -11,7 +11,7 @@ import com.mary.recyclerviewdemo.R;
 import java.util.List;
 
 /**
- * File Name:   StaggeredAdapter
+ * File Name:   RecyclerViewAdapter
  * Author:      Mary
  * Write Dates: 2016/2/16
  * Description: 瀑布流适配器
@@ -21,20 +21,21 @@ import java.util.List;
  * --------------------------------
  *
  */
-public abstract class StaggeredAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
+public abstract class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
     /**数据*/
-    // private List<String> mDatas;
     protected List<T> mDatas;
     /**上下文对象*/
     protected Context mContext;
+    /**Item的主布局视图*/
+    protected View mConvertView;
     /**布局打气筒*/
-    private LayoutInflater mInflater;
+    protected LayoutInflater mInflater;
     /**布局ID*/
-    protected final int mItemLayoutId;
+    protected int mItemLayoutId;
     /**Item的点击事件监听*/
     private OnItemClickLitener mOnItemClickLitener;
 
-    public StaggeredAdapter(Context context, List<T> datas, int layoutId) {
+    public RecyclerViewAdapter(Context context, List<T> datas, int layoutId) {
         this.mContext       = context;
         this.mInflater     = LayoutInflater.from(context);
         this.mDatas         = datas;
@@ -47,9 +48,14 @@ public abstract class StaggeredAdapter<T> extends RecyclerView.Adapter<RecyclerV
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RecyclerViewHolder holder = new RecyclerViewHolder(mContext, mInflater.inflate(
-                R.layout.item_one, parent, false), mItemLayoutId);
+        mConvertView = mInflater.inflate(R.layout.item_one, parent, false);
+        RecyclerViewHolder holder = new RecyclerViewHolder(mContext, mConvertView, mItemLayoutId);
         return holder;
     }
 

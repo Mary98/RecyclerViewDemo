@@ -1,4 +1,4 @@
-package com.mary.recyclerviewdemo;
+package com.mary.recyclerviewdemo.bean;
 
 /**
  * Created by Mary on 16/1/30.

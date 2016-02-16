@@ -12,6 +12,7 @@ import com.mary.recyclerviewdemo.activity.NineActivity;
 import com.mary.recyclerviewdemo.activity.OneActivity;
 import com.mary.recyclerviewdemo.activity.SevenActivity;
 import com.mary.recyclerviewdemo.activity.SixActivity;
+import com.mary.recyclerviewdemo.activity.TenActivity;
 import com.mary.recyclerviewdemo.activity.ThreeActivity;
 import com.mary.recyclerviewdemo.activity.TwoActivity;
 
@@ -57,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void to_9Activity(View view) {
         Intent intent = new Intent(MainActivity.this, NineActivity.class);
+        startActivity(intent);
+    }
+    public void to_10Activity(View view) {
+        Intent intent = new Intent(MainActivity.this, TenActivity.class);
         startActivity(intent);
     }
 }

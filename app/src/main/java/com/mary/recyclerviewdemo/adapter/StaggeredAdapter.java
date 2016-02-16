@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * File Name:   StaggeredAdapter
+ * File Name:   RecyclerViewAdapter
  * Author:      Mary
  * Write Dates: 2016/2/16
  * Description: 瀑布流适配器
