@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.mary.recyclerviewdemo.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,7 +39,7 @@ public abstract class RecyclerViewAdapter<T> extends RecyclerView.Adapter<Recycl
     public RecyclerViewAdapter(Context context, List<T> datas, int layoutId) {
         this.mContext       = context;
         this.mInflater     = LayoutInflater.from(context);
-        this.mDatas         = datas;
+        this.mDatas         = (null != datas) ? datas : new ArrayList<T>();
         this.mItemLayoutId = layoutId;
     }
 
@@ -54,7 +55,7 @@ public abstract class RecyclerViewAdapter<T> extends RecyclerView.Adapter<Recycl
 
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        mConvertView = mInflater.inflate(R.layout.item_one, parent, false);
+        mConvertView = mInflater.inflate(mItemLayoutId, parent, false);
         RecyclerViewHolder holder = new RecyclerViewHolder(mContext, mConvertView, mItemLayoutId);
         return holder;
     }

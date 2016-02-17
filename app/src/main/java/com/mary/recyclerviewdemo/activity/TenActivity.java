@@ -90,7 +90,7 @@ public class TenActivity extends AppCompatActivity {
                 }) {
 
             @Override
-            public void convert(RecyclerViewHolder holder, ChatMessage chatMessage) {
+            public void convert(RecyclerViewHolder holder, final ChatMessage chatMessage) {
                 /**
                  * 判断 Item 布局，再设置数据
                  */
@@ -98,12 +98,25 @@ public class TenActivity extends AppCompatActivity {
                     case R.layout.main_chat_from_msg:
                         holder.setText(R.id.chat_from_content, chatMessage.getContent());
                         holder.setText(R.id.chat_from_name, chatMessage.getName());
-                        holder.setImageResource(R.id.chat_from_icon, chatMessage.getIcon());
+                        holder.setImageResource(R.id.chat_from_icon, chatMessage.getIcon())
+                        .setOnClickListener(R.id.chat_from_icon, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(TenActivity.this, "你点击了：" + chatMessage.getName(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         break;
                     case R.layout.main_chat_send_msg:
                         holder.setText(R.id.chat_send_content, chatMessage.getContent());
                         holder.setText(R.id.chat_send_name, chatMessage.getName());
-                        holder.setImageResource(R.id.chat_send_icon, chatMessage.getIcon());
+                        holder.setImageResource(R.id.chat_send_icon, chatMessage.getIcon())
+                        .setOnLongClickListener(R.id.chat_send_icon, new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                Toast.makeText(TenActivity.this, "你长按了：" + chatMessage.getName(), Toast.LENGTH_SHORT).show();
+                                return true;
+                            }
+                        });
                         break;
                 }
             }
